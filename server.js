@@ -1,35 +1,18 @@
 const express = require('express');
 const app = express();
 
-// Middleware to parse JSON (optional, but good practice)
+// Middleware
 app.use(express.json());
 
-// Routes
+// Importing Routers
+const productRoutes = require('./routes/productRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
 
-// Products
-app.get('/products', (req, res) => {
-  res.send("Here is the list of all products.");
-});
+// Using Routers
+app.use('/products', productRoutes);
+app.use('/categories', categoryRoutes);
 
-app.post('/products', (req, res) => {
-  res.send("A new product has been added.");
-});
-
-// Categories
-app.get('/categories', (req, res) => {
-  res.send("Here is the list of all categories.");
-});
-
-app.post('/categories', (req, res) => {
-  res.send("A new category has been created.");
-});
-
-// Wildcard Route (Handles all undefined routes)
-app.use( (req, res) => {
-  res.status(404).send('<h1>404 - Page Not Found</h1>');
-});
-
-// Server Listen on Port 4000
+// Start Server
 app.listen(4000, () => {
-  console.log("Server is running on http://localhost:4000");
+  console.log("Server running at http://localhost:4000");
 });
