@@ -1,5 +1,5 @@
 {
-  "name": "routes_task",
+  "name": "student-course-api",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -11,7 +11,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0",
-    "http": "^0.0.1-security"
+    "express": "^5.1.0"
   }
 }
