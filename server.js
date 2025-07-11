@@ -1,18 +1,11 @@
 const express = require('express');
 const app = express();
+const booksRouter = require('./routes/books');
 
-// Middleware
-app.use(express.json());
+app.use(express.json()); // To parse JSON bodies
 
-// Importing Routers
-const productRoutes = require('./routes/productRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
+app.use('/books', booksRouter); // Mount the router on /books
 
-// Using Routers
-app.use('/products', productRoutes);
-app.use('/categories', categoryRoutes);
-
-// Start Server
-app.listen(4000, () => {
-  console.log("Server running at http://localhost:4000");
+app.listen(3000, () => {
+  console.log('Library server is running on http://localhost:3000');
 });
