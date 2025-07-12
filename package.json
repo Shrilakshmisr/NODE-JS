@@ -1,5 +1,5 @@
 {
-  "name": "student-course-api",
+  "name": "ecommerce_app",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "http": "^0.0.1-security"
   }
 }
