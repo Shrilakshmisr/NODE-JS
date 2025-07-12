@@ -2,24 +2,21 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-// Importing routes
-const userRoutes = require("./routes/userRoutes");
+// Import product routes
 const productRoutes = require("./routes/productRoutes");
-const cartRoutes = require("./routes/cartRoutes");
 
-// Middleware to parse JSON
+// Middleware
 app.use(express.json());
 
-// Using route files
-app.use("/users", userRoutes);
+// Mount routes
 app.use("/products", productRoutes);
-app.use("/cart", cartRoutes);
 
-// Handle undefined routes (404)
+// Handle unknown routes
 app.use((req, res) => {
-  res.status(404).send("<h1>404 - Page Not Found</h1>");
+  res.status(404).send("404 - Route Not Found");
 });
 
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
