@@ -1,5 +1,5 @@
 {
-  "name": "service_ecommerce_api",
+  "name": "get_html",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
