@@ -1,19 +1,14 @@
 const express = require('express');
-const path = require('path');
 const productRoutes = require('./routes/productRoutes');
+const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
-const PORT = 3000;
-
-// Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public')); // For serving JS
 
 // Routes
-app.use('/api', productRoutes);
+app.use('/api/products', productRoutes);
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
+// Central error handler (must come last)
+app.use(errorHandler);
+
+app.listen(3000, () => console.log('Server running on port 3000'));
