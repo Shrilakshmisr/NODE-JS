@@ -5,10 +5,13 @@ const productRoutes = require('./routes/productRoutes');
 const app = express();
 const PORT = 3000;
 
-// Route Middleware
+// Middleware for serving static files (optional, if needed)
+app.use(express.static('public'));
+
+// Use product routes
 app.use('/api', productRoutes);
 
-// Start Server
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
